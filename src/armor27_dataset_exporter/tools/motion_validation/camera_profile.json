@@ -1,0 +1,18 @@
+{
+  "model": "MV-CS016-10UC",
+  "specification_source": "User-provided specification; not yet calibrated on the physical camera",
+  "sensor": "IMX273",
+  "shutter": "GLOBAL",
+  "color": true,
+  "pixel_pitch_um": 3.45,
+  "width": 1440,
+  "height": 1080,
+  "sensor_width_mm": 4.968,
+  "sensor_height_mm": 3.726,
+  "focal_length_mm": 6.0,
+  "fps": 200,
+  "maximum_bayer_rg8_fps": 249.1,
+  "exposure_test_seconds": [0.0015, 0.004],
+  "render_output": "RGB JPEG",
+  "sensor_simulation_limit": "Ideal pinhole RGB rendering, not calibrated Bayer, demosaicing or lens distortion"
+}

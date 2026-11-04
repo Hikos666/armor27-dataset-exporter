@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "unit": "meter",
+  "seed": 27,
+  "attempts": 80,
+  "minimum_accepted": 8,
+  "grid_step_m": 0.25,
+  "region_weights": {
+    "central_black": 0.8,
+    "other_field": 0.2
+  },
+  "regions": {
+    "central_black": {
+      "object": "_0002",
+      "material": "mat_20",
+      "min_normal_z": 0.85
+    },
+    "other_field": {
+      "min_normal_z": 0.85
+    },
+    "field_root": "00_RMUC20270001_ASM",
+    "floor_bounds_object": "_0001"
+  },
+  "object_bottom_height_m": [0.05, 0.35],
+  "camera_height_m": [0.25, 0.8],
+  "distance_m": [0.1, 8.0],
+  "distance_distribution": "log_uniform",
+  "yaw_deg": [-89.0, 89.0],
+  "pitch_deg": [-15.0, 15.0],
+  "roll_deg": [-30.0, 30.0],
+  "yaw_bins_deg": [[-20.0, 20.0], [-60.0, -20.0], [20.0, 60.0], [-89.0, -60.0], [60.0, 89.0]],
+  "look_offset_fraction_of_distance": 0.06,
+  "support_height_tolerance_m": 0.05,
+  "clearance_above_bottom_m": 0.02,
+  "pose_distance_tolerance_m": 0.01,
+  "pose_angle_tolerance_deg": 0.05,
+  "pose_iterations": 6,
+  "interior_cell_probability": 0.85,
+  "placement_retries": 6,
+  "min_projected_span_px": 16,
+  "image_margin_px": 1,
+  "visibility_grid": 12,
+  "minimum_visible_area": 0.3,
+  "minimum_visible_corners": 2,
+  "notes": [
+    "Ranges are the confirmed centimeter limits converted once: height 5-35 cm, camera 25-80 cm, distance 10-800 cm.",
+    "Region identity is the configured object and material, not a pixel color test at sample time.",
+    "Distance is log-uniform and yaw is stratified by bin, so draws are not uniform. Accepted samples are whatever survives rejection.",
+    "Footprint rays, radial clearance and the visibility grid are discrete checks, not a continuous collision or occlusion proof.",
+    "min_projected_span_px, look offset and visibility grid are initial screening values, not a calibrated camera policy."
+  ]
+}

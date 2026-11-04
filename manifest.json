@@ -1,0 +1,21 @@
+{
+  "package_name": "armor27-dataset-exporter",
+  "version": "1.0.0",
+  "blender_min_version": "5.2.0",
+  "addon_module": "armor27_dataset_exporter",
+  "asset_layout": {
+    "source_blend": "armor_newnewnew.blend",
+    "plate_images": "IDs/",
+    "config": "tools/generate/*.json, tools/placement/sampling_config.json"
+  },
+  "runtime": {
+    "asset_root_env": "ARMOR27_ASSET_ROOT",
+    "output_root_env": "ARMOR27_OUTPUT_ROOT",
+    "state_root_env": "ARMOR27_STATE_ROOT"
+  },
+  "notes": [
+    "The Full package includes the source blend and plate images.",
+    "The Add-on package contains code and configuration only; select an external asset root before generating.",
+    "Generated batches are written to the user-selected output directory."
+  ]
+}

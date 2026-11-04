@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "label_schema": {
+    "fields_per_object": 17,
+    "format": "joint_id cx cy w h lt_x lt_y v lb_x lb_y v rb_x rb_y v rt_x rt_y v",
+    "joint_id": "color_id * 9 + number_id",
+    "decode_color": "joint_id // 9",
+    "decode_number": "joint_id % 9",
+    "color_head_classes": 4,
+    "number_head_classes": 9,
+    "joint_is_file_encoding_only": true,
+    "flip_idx": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "keypoint_semantics": "LED panel corners; latest user instruction supersedes light-bar endpoints",
+    "coordinates": "normalized to original image dimensions; no pre-resize to 640",
+    "visibility": {
+      "0": "no valid endpoint label",
+      "1": "annotated but occluded",
+      "2": "visible"
+    },
+    "empty_image": "empty txt",
+    "current_fixture_visibility": [
+      1,
+      2
+    ],
+    "partial_occlusion_status": "Implemented for controlled opaque-plate fixtures with area and sampled-exposure checks; not a general production sampler"
+  },
+  "source_blend": "armor_newnewnew.blend",
+  "unit_scale_meters": 1.0,
+  "armor_root": "armor.002",
+  "panel_object": "_4_visual.001",
+  "panel_material_slot": 0,
+  "initial_material": "LED-jidi-red",
+  "validated_materials": [
+    {
+      "material": "LED-3blue",
+      "class_id": 3,
+      "color_id": 0
+    },
+    {
+      "material": "LED-3red",
+      "class_id": 3,
+      "color_id": 1
+    },
+    {
+      "material": "LED-jidi-blue",
+      "class_id": 7,
+      "color_id": 0
+    },
+    {
+      "material": "LED-jidi-red",
+      "class_id": 7,
+      "color_id": 1
+    }
+  ],
+  "keypoints": {
+    "surface": "LED emitting front panel, not outer frame or printed glyph",
+    "face_index": 1,
+    "order": [
+      "top_left",
+      "bottom_left",
+      "bottom_right",
+      "top_right"
+    ],
+    "panel_vertex_indices": [
+      7,
+      6,
+      2,
+      3
+    ],
+    "expected_mesh_vertices": 8,
+    "expected_mesh_polygons": 6,
+    "armor_local_coordinates": [
+      [
+        -0.0596743673,
+        0.0079415068,
+        0.0567681193
+      ],
+      [
+        -0.0595804937,
+        -0.0207603574,
+        -0.0505669117
+      ],
+      [
+        0.0594919547,
+        -0.0203701966,
+        -0.0505669117
+      ],
+      [
+        0.0593979023,
+        0.0083316304,
+        0.0567681193
+      ]
+    ],
+    "runtime_order": "Keep semantic order fixed under 3D transforms; horizontal flip permutation is [3,2,1,0]"
+  },
+  "keypoint_status": "User selected LED panel corners; extracted from front face and projected for visual verification",
+  "field_root": "00_RMUC20270001_ASM",
+  "field_base_candidate": "_0001",
+  "central_highland_candidate": "_0002",
+  "central_black_material_candidate": "mat_20",
+  "sampling_region_status": "Geometric mask from the object and material named in sampling_config.json, built by tools/placement/sample_field.py. Not a surveyed rulebook boundary, and accepted poses are rejection-sampled.",
+  "notes": [
+    "Do not derive class IDs directly from material names such as LED-7blue",
+    "LED material replacement must update class_id and color_id atomically",
+    "Purple, none-color, unknown and all remaining classes are not yet fully validated",
+    "Height must use the actual field surface, not global Z=0",
+    "Validation previews use a temporary camera, not production camera calibration"
+  ],
+  "sampling_config": "tools/placement/sampling_config.json"
+}

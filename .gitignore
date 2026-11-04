@@ -1,0 +1,19 @@
+# Build outputs and local caches
+build/
+__pycache__/
+*.py[cod]
+*.blend1
+*.log
+runs/
+.cache/
+.venv/
+
+# Local/private asset staging
+private_assets/
+
+# Blender user and temporary files
+*.tmp
+*.autosave
+
+# The field model ships as a GitHub Release asset, not in the repository.
+*.glb

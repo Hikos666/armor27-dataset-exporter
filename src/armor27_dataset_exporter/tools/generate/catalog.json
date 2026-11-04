@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "rule": "class_id and color_id are explicit. Nothing reads digits out of a material name.",
+  "class_names": [
+    "哨兵",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "前哨",
+    "基地",
+    "未知"
+  ],
+  "color_names": [
+    "蓝",
+    "红",
+    "紫",
+    "无"
+  ],
+  "unavailable": [
+    {
+      "class_id": 8,
+      "name": "未知",
+      "reason": "no dedicated unknown-plate image; digit 7 is sentry, not unknown"
+    }
+  ],
+  "excluded_materials": [
+    {
+      "name": "LED-7red",
+      "reason": "7mini-red.jpg is byte-identical to the dark 7mini.jpg, so it is not a red plate"
+    },
+    {
+      "name": "LED-qianshao-red",
+      "reason": "qianshao-red.jpg is byte-identical to qianshao-black.jpg"
+    },
+    {
+      "name": "LED-1large",
+      "reason": "Number 1 now uses the 1mini plates, same as the other numbered armors."
+    }
+  ],
+  "entries": [
+    {
+      "material": "LED.1blue.002",
+      "class_id": 1,
+      "color_id": 0,
+      "image": "1mini-blue.jpg"
+    },
+    {
+      "material": "LED.1red.001",
+      "class_id": 1,
+      "color_id": 1,
+      "image": "1mini-red.jpg"
+    },
+    {
+      "material": "LED.1black.001",
+      "class_id": 1,
+      "color_id": 3,
+      "image": "1mini-black.jpg"
+    },
+    {
+      "material": "LED-2blue",
+      "class_id": 2,
+      "color_id": 0,
+      "image": "2mini-blue.jpg"
+    },
+    {
+      "material": "LED-3blue",
+      "class_id": 3,
+      "color_id": 0,
+      "image": "3mini-blue.jpg"
+    },
+    {
+      "material": "LED-3red",
+      "class_id": 3,
+      "color_id": 1,
+      "image": "3mini-red.jpg"
+    },
+    {
+      "material": "LED.3black",
+      "class_id": 3,
+      "color_id": 3,
+      "image": "3mini.jpg"
+    },
+    {
+      "material": "LED-4blue",
+      "class_id": 4,
+      "color_id": 0,
+      "image": "4mini.jpg"
+    },
+    {
+      "material": "LED-4black-red",
+      "class_id": 4,
+      "color_id": 1,
+      "image": "4mini-black-red.jpg"
+    },
+    {
+      "material": "LED-4black",
+      "class_id": 4,
+      "color_id": 3,
+      "image": "4mini-black.jpg"
+    },
+    {
+      "material": "LED-5blue",
+      "class_id": 5,
+      "color_id": 0,
+      "image": "5mini-blue.jpg"
+    },
+    {
+      "material": "LED-5red",
+      "class_id": 5,
+      "color_id": 1,
+      "image": "5mini-red.jpg"
+    },
+    {
+      "material": "LED.5black",
+      "class_id": 5,
+      "color_id": 3,
+      "image": "5mini.jpg"
+    },
+    {
+      "material": "LED-qianshao-blue",
+      "class_id": 6,
+      "color_id": 0,
+      "image": "qianshao-blue.jpg"
+    },
+    {
+      "material": "LED-qianshao-black",
+      "class_id": 6,
+      "color_id": 3,
+      "image": "qianshao-black.jpg"
+    },
+    {
+      "material": "LED-jidi-blue",
+      "class_id": 7,
+      "color_id": 0,
+      "image": "jidi-blue.jpg"
+    },
+    {
+      "material": "LED-jidi-red",
+      "class_id": 7,
+      "color_id": 1,
+      "image": "jidi-red.jpg"
+    },
+    {
+      "material": "LED.jidi",
+      "class_id": 7,
+      "color_id": 3,
+      "image": "jidi.jpg"
+    },
+    {
+      "material": "LED-7blue",
+      "class_id": 0,
+      "color_id": 0,
+      "image": "7mini-blue.jpg"
+    },
+    {
+      "material": "LED.7black",
+      "class_id": 0,
+      "color_id": 3,
+      "image": "7mini.jpg"
+    }
+  ],
+  "notes": [
+    "Digit 7 plates are sentry, class_id 0. Class 7 remains 基地 and uses the jidi materials. The mapping is written here; generation does not parse the digit out of the material name.",
+    "LED-7blue is sentry blue. LED.7black is sentry with no team color. LED-7red is excluded because 7mini-red.jpg matches the dark plate.",
+    "Purple (color_id 2) is not sampled. No purple plates are generated into training data until a real purple source exists.",
+    "LED-4blue uses IDs/4mini.jpg, whose pixels are blue. LED-4black-red is the red class-4 plate.",
+    "Class 1 uses LED.1blue.002, LED.1red.001 and LED.1black.001 from 1mini images. LED-1large is not sampled."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "use_compositor": true,
+  "image_glare_enabled": false,
+  "distractors": {
+    "enabled": true,
+    "placement_retries": 40,
+    "depth_m": [0.15, 10.0],
+    "light_bar": {
+      "object": "dengtiao",
+      "count": [0, 5],
+      "bottom_height_m": [0.30, 0.50],
+      "materials": ["dengtiao_red", "dengtiao_green", "dengtiao_blue"],
+      "material_presets": {
+        "dengtiao_red": {
+          "template": "dengtiao_green",
+          "inputs": {
+            "Emission Color": [1.0, 0.000926967943, 0.006227307953, 1.0],
+            "Emission Strength": 10.0,
+            "Metallic": 1.0,
+            "Roughness": 0.5363636613
+          }
+        },
+        "dengtiao_blue": {
+          "template": "dengtiao_green",
+          "inputs": {
+            "Emission Color": [0.001014429377, 0.01273285132, 1.0, 1.0],
+            "Emission Strength": 23.8,
+            "Metallic": 0.0,
+            "Roughness": 0.5
+          }
+        }
+      }
+    },
+    "bullet_mini": {"object": "bullet-mini", "count": [0, 40]},
+    "bullet_large": {"object": "bullet-large", "count": [0, 4]},
+    "bullets": {
+      "ground_probability": 0.30,
+      "ground_bottom_height_m": [0.0, 0.10],
+      "air_bottom_height_m": [0.10, 2.0],
+      "emission_multiplier": [0.5, 2.0],
+      "dim_below_m": 0.10,
+      "dim_probability": 0.70,
+      "dim_beta": 3.0
+    }
+  },
+  "seed": 27,
+  "target_images": 8,
+  "max_attempts": 80,
+  "val_count": 2,
+  "render_samples": 32,
+  "jpeg_quality": 95,
+  "light_energy_scale": [
+    0.8,
+    1.2
+  ],
+  "flip_probability": 0.0,
+  "noise_sigma": 0.012,
+  "glare_probability": 0.15,
+  "glare_radius_px": [
+    36,
+    72
+  ],
+  "glare_alpha": [
+    0.15,
+    0.32
+  ],
+  "keypoint_clearance_px": 28,
+  "glare_colors": [
+    {
+      "name": "red",
+      "rgb": [
+        1.0,
+        0.12,
+        0.08
+      ],
+      "weight": 3
+    },
+    {
+      "name": "blue",
+      "rgb": [
+        0.1,
+        0.25,
+        1.0
+      ],
+      "weight": 3
+    },
+    {
+      "name": "green",
+      "rgb": [
+        0.12,
+        0.9,
+        0.2
+      ],
+      "weight": 3
+    },
+    {
+      "name": "yellow",
+      "rgb": [
+        1.0,
+        0.82,
+        0.12
+      ],
+      "weight": 1
+    },
+    {
+      "name": "purple",
+      "rgb": [
+        0.62,
+        0.1,
+        0.95
+      ],
+      "weight": 1
+    }
+  ],
+  "notes": [
+    "Vertical flip is not used.",
+    "Optional image-overlay glare is independent of compositor Bloom and disabled by image_glare_enabled by default; its overlays stay clear of the four corners.",
+    "If no legal glare position is found, the sample stays glare-free instead of being rejected.",
+    "Light randomization only scales lamps already in the scene. No extra fill light is added.",
+    "The first samples cover each available class once, then entries are drawn from the full non-purple catalog.",
+    "Purple is not generated.",
+    "Moiré mode turns denoising off, uses a filter width of 1.0, and keeps at least half the plates between 90 and 420 pixels so the LED lattice can beat against the sensor. Horizontal flip is off. Generation samples default to 32.",
+    "Same-scene ID swaps are controlled by paired_scenes here, not by a panel option. Keep each scene_group in exactly one train/val/test split.",
+    "Motion blur is controlled by the panel probability slider. It uses Cycles centered-shutter exposure integration at the camera profile frame rate; exposure and object lateral speed are sampled from the settings below. This is a visual enhancement, not a calibrated robot/camera motion distribution."
+  ],
+  "preserve_moire": true,
+  "moire_span_px": [
+    90,
+    420
+  ],
+  "moire_minimum_fraction": 0.5,
+  "moire_filter_width": 1.0,
+  "moire_noise_sigma": 0.004,
+  "paired_scenes": false,
+  "motion_blur_probability": 0.25,
+  "motion_exposure_s": [
+    0.0015,
+    0.004
+  ],
+  "motion_speed_m_s": [
+    0.5,
+    3.0
+  ]
+}
